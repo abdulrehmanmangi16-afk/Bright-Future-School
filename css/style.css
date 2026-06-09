@@ -1,0 +1,701 @@
+/* ============================
+   GLOBAL STYLES
+   ============================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ============================
+   SPLASH SCREEN
+   ============================ */
+
+#splash-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* AR Logo */
+.logo {
+  font-size: 60px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 8px;
+  margin-bottom: 30px;
+  animation: glow 1.5s infinite alternate;
+}
+
+/* Glow effect */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #666;
+    transform: scale(1);
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 40px #aaa;
+    transform: scale(1.1);
+  }
+}
+
+/* Loader container */
+.loader {
+  width: 200px;
+  height: 6px;
+  background: #222;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+/* Progress bar */
+.progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ffffff, #888);
+  animation: loading 2.5s linear forwards;
+}
+
+/* Loading animation */
+@keyframes loading {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* ============================
+   HEADER & NAVIGATION
+   ============================ */
+
+.header {
+  background: #0f3d91;
+  color: white;
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header .logo {
+  font-size: 22px;
+  font-weight: 700;
+  animation: none;
+  text-shadow: none;
+  margin-bottom: 0;
+  letter-spacing: 2px;
+}
+
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #ffc107;
+}
+
+/* ============================
+   HERO SECTION
+   ============================ */
+
+.hero {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(rgba(15, 61, 145, 0.8), rgba(15, 61, 145, 0.8)),
+    url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.hero-content button {
+  background: #ffc107;
+  border: none;
+  padding: 14px 35px;
+  font-size: 17px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero-content button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
+}
+
+/* ============================
+   SECTION TITLES
+   ============================ */
+
+section h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #0f3d91;
+  font-size: 34px;
+}
+
+/* ============================
+   STATS SECTION
+   ============================ */
+
+.stats {
+  padding: 70px 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: white;
+  padding: 30px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card h2 {
+  color: #0f3d91;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+/* ============================
+   ABOUT SECTION
+   ============================ */
+
+.about {
+  padding: 80px 8%;
+  text-align: center;
+}
+
+.about p {
+  max-width: 800px;
+  margin: auto;
+  font-size: 18px;
+  color: #555;
+}
+
+/* ============================
+   COURSES SECTION
+   ============================ */
+
+.courses {
+  padding: 80px 5%;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.course-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.course-card h3 {
+  color: #0f3d91;
+  margin-bottom: 10px;
+}
+
+/* ============================
+   TEACHERS SECTION
+   ============================ */
+
+.teachers {
+  padding: 80px 5%;
+}
+
+.teacher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.teacher-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.teacher-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.teacher-card h3 {
+  color: #0f3d91;
+  margin-bottom: 8px;
+}
+
+/* ============================
+   STUDENTS SECTION
+   ============================ */
+
+.students {
+  padding: 80px 5%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+table th {
+  background: #0f3d91;
+  color: white;
+  padding: 15px;
+  font-weight: 600;
+}
+
+table td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+table tr:hover {
+  background: #f1f5ff;
+}
+
+/* ============================
+   EVENTS SECTION
+   ============================ */
+
+.events {
+  padding: 80px 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+  text-align: center;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.event-card h3 {
+  color: #0f3d91;
+  margin-bottom: 10px;
+}
+
+/* ============================
+   TESTIMONIALS SECTION
+   ============================ */
+
+.testimonials {
+  padding: 80px 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.review {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.review:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.review h3 {
+  margin-bottom: 10px;
+  color: #0f3d91;
+}
+
+/* ============================
+   CONTACT SECTION
+   ============================ */
+
+.contact {
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.contact p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+
+footer {
+  background: #0f3d91;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+}
+
+/* ============================
+   STUDENT PORTAL
+   ============================ */
+
+.student-portal {
+  padding: 80px 5%;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.portal-box {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.portal-box input {
+  padding: 12px 20px;
+  border: 2px solid #0f3d91;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 300px;
+}
+
+.portal-box button {
+  padding: 12px 25px;
+  background: #0f3d91;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.portal-box button:hover {
+  background: #0a2a6a;
+  transform: translateY(-2px);
+}
+
+/* ============================
+   STUDENT CARD
+   ============================ */
+
+.student-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.student-card h3 {
+  color: #0f3d91;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.student-card p {
+  margin: 8px 0;
+  color: #555;
+}
+
+/* ============================
+   NOTICE BOARD
+   ============================ */
+
+.notice-board {
+  padding: 40px 5%;
+  background: #fff8e1;
+  margin: 30px 0;
+}
+
+.notice-board h2 {
+  color: #0f3d91;
+}
+
+.notice-board p {
+  padding: 10px;
+  background: white;
+  border-left: 4px solid #ffc107;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+/* ============================
+   LIVE CLOCK
+   ============================ */
+
+#liveClock {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 30px;
+  color: #0f3d91;
+}
+
+/* ============================
+   ADMIN DASHBOARD
+   ============================ */
+
+.admin-dashboard {
+  padding: 80px 5%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.dashboard-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-card h3 {
+  color: #0f3d91;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.admin-form {
+  background: white;
+  padding: 25px;
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.admin-form h3 {
+  color: #0f3d91;
+  margin-bottom: 15px;
+}
+
+.admin-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.admin-form input:focus {
+  outline: none;
+  border-color: #0f3d91;
+  box-shadow: 0 0 5px rgba(15, 61, 145, 0.3);
+}
+
+.admin-form button {
+  width: 100%;
+  padding: 12px;
+  background: #0f3d91;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.admin-form button:hover {
+  background: #0a2a6a;
+  transform: translateY(-2px);
+}
+
+#adminResult {
+  margin-top: 30px;
+}
+
+/* ============================
+   SCROLLBAR
+   ============================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0f3d91;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+   ============================ */
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero {
+    height: 75vh;
+  }
+
+  section h2 {
+    font-size: 28px;
+  }
+
+  .header .logo {
+    font-size: 20px;
+  }
+
+  .portal-box {
+    flex-direction: column;
+  }
+
+  .portal-box input {
+    width: 100%;
+  }
+
+  .stats {
+    padding: 40px 5%;
+  }
+
+  .courses,
+  .teachers,
+  .events,
+  .testimonials {
+    padding: 40px 5%;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  table td,
+  table th {
+    padding: 10px 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .logo {
+    font-size: 40px;
+  }
+
+  .navbar {
+    gap: 8px;
+  }
+
+  .navbar a {
+    font-size: 14px;
+  }
+
+  section h2 {
+    font-size: 24px;
+  }
+}
