@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joke Generator - Random Jokes API</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/joke-generator.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <i class="fas fa-laugh-beam"></i> Joke Generator
+      </div>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="todo.html">Todo App</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="container">
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <h1>😂 Random Joke Generator</h1>
+        <p>Get instant laughs with random jokes from multiple categories!</p>
+      </section>
+
+      <!-- JOKE GENERATOR CONTAINER -->
+      <div class="joke-container">
+        <!-- CATEGORY SELECTION -->
+        <section class="category-section">
+          <h2>Choose a Category</h2>
+          <div class="category-buttons">
+            <button class="category-btn active" data-category="any">
+              <i class="fas fa-dice"></i> Any
+            </button>
+            <button class="category-btn" data-category="general">
+              <i class="fas fa-grin"></i> General
+            </button>
+            <button class="category-btn" data-category="knock-knock">
+              <i class="fas fa-door-open"></i> Knock-Knock
+            </button>
+            <button class="category-btn" data-category="programming">
+              <i class="fas fa-code"></i> Programming
+            </button>
+            <button class="category-btn" data-category="dark">
+              <i class="fas fa-skull"></i> Dark
+            </button>
+            <button class="category-btn" data-category="spooky">
+              <i class="fas fa-ghost"></i> Spooky
+            </button>
+          </div>
+        </section>
+
+        <!-- JOKE DISPLAY AREA -->
+        <section class="joke-display">
+          <div id="jokeCard" class="joke-card">
+            <div class="loading" id="loading">
+              <div class="spinner"></div>
+              <p>Loading a joke for you...</p>
+            </div>
+            <div class="joke-content" id="jokeContent" style="display: none;">
+              <div class="joke-type" id="jokeType"></div>
+              <div class="joke-text" id="jokeText"></div>
+              <div class="joke-setup" id="jokeSetup" style="display: none;"></div>
+              <div class="joke-delivery" id="jokeDelivery" style="display: none;"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ACTION BUTTONS -->
+        <section class="action-buttons">
+          <button id="nextBtn" class="btn btn-primary">
+            <i class="fas fa-arrow-right"></i> Next Joke
+          </button>
+          <button id="copyBtn" class="btn btn-secondary">
+            <i class="fas fa-copy"></i> Copy Joke
+          </button>
+          <button id="shareBtn" class="btn btn-secondary">
+            <i class="fas fa-share-alt"></i> Share
+          </button>
+          <button id="favoriteBtn" class="btn btn-secondary">
+            <i class="fas fa-heart"></i> <span id="favoriteCount">0</span>
+          </button>
+        </section>
+
+        <!-- FAVORITES SECTION -->
+        <section class="favorites-section">
+          <div class="favorites-header">
+            <h2>
+              <i class="fas fa-heart"></i> Favorite Jokes
+            </h2>
+            <button id="clearFavoritesBtn" class="clear-btn">
+              <i class="fas fa-trash"></i> Clear All
+            </button>
+          </div>
+          <div id="favoritesList" class="favorites-list">
+            <div class="empty-message">
+              <p>No favorite jokes yet. Add some!</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- JOKE HISTORY SECTION -->
+        <section class="history-section">
+          <div class="history-header">
+            <h2>
+              <i class="fas fa-history"></i> Recent Jokes
+            </h2>
+            <button id="clearHistoryBtn" class="clear-btn">
+              <i class="fas fa-trash"></i> Clear History
+            </button>
+          </div>
+          <div id="historyList" class="history-list">
+            <div class="empty-message">
+              <p>No recent jokes. Start generating!</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- STATISTICS SECTION -->
+        <section class="stats-section">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-laugh"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Total Jokes Generated</span>
+              <span class="stat-value" id="totalGenerated">0</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Total Favorites</span>
+              <span class="stat-value" id="totalFavorites">0</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-fire"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Most Used Category</span>
+              <span class="stat-value" id="mostUsedCategory">-</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Session Time</span>
+              <span class="stat-value" id="sessionTime">0s</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2026 Joke Generator. Powered by Official Joke API. Built with ❤️</p>
+  </footer>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast"></div>
+
+  <script src="js/joke-generator.js"></script>
+</body>
+</html>
