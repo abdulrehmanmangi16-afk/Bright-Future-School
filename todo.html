@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager - To-Do List App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/todo.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <i class="fas fa-tasks"></i> Task Manager
+      </div>
+      <nav class="navbar">
+        <a href="index.html">Back to Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="container">
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <h1>Organize Your Tasks</h1>
+        <p>Create, manage, and track your daily tasks efficiently</p>
+      </section>
+
+      <!-- TODO APP CONTAINER -->
+      <div class="todo-container">
+        <!-- INPUT SECTION -->
+        <section class="input-section">
+          <div class="input-group">
+            <input 
+              type="text" 
+              id="taskInput" 
+              class="task-input" 
+              placeholder="Add a new task..."
+              autocomplete="off"
+            >
+            <select id="prioritySelect" class="priority-select">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+            <button id="addBtn" class="add-btn">
+              <i class="fas fa-plus"></i> Add Task
+            </button>
+          </div>
+        </section>
+
+        <!-- STATS SECTION -->
+        <section class="stats-section">
+          <div class="stat-item">
+            <span class="stat-label">Total Tasks</span>
+            <span class="stat-value" id="totalTasks">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Completed</span>
+            <span class="stat-value completed" id="completedTasks">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Pending</span>
+            <span class="stat-value pending" id="pendingTasks">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">High Priority</span>
+            <span class="stat-value high" id="highPriorityTasks">0</span>
+          </div>
+        </section>
+
+        <!-- FILTER SECTION -->
+        <section class="filter-section">
+          <button class="filter-btn active" data-filter="all">
+            <i class="fas fa-th"></i> All
+          </button>
+          <button class="filter-btn" data-filter="pending">
+            <i class="fas fa-hourglass-half"></i> Pending
+          </button>
+          <button class="filter-btn" data-filter="completed">
+            <i class="fas fa-check-circle"></i> Completed
+          </button>
+          <button class="filter-btn" data-filter="high">
+            <i class="fas fa-fire"></i> High Priority
+          </button>
+          <button class="filter-btn" data-filter="today">
+            <i class="fas fa-calendar-today"></i> Today
+          </button>
+        </section>
+
+        <!-- SORT & ACTION SECTION -->
+        <section class="sort-action-section">
+          <select id="sortSelect" class="sort-select">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="priority">By Priority</option>
+            <option value="alphabetical">Alphabetical</option>
+          </select>
+          <div class="action-buttons">
+            <button id="exportBtn" class="action-btn export-btn" title="Export tasks">
+              <i class="fas fa-download"></i> Export
+            </button>
+            <button id="clearBtn" class="action-btn clear-btn" title="Clear completed tasks">
+              <i class="fas fa-trash"></i> Clear Completed
+            </button>
+            <button id="deleteAllBtn" class="action-btn delete-all-btn" title="Delete all tasks">
+              <i class="fas fa-broom"></i> Delete All
+            </button>
+          </div>
+        </section>
+
+        <!-- TASKS LIST SECTION -->
+        <section class="tasks-section">
+          <div id="tasksList" class="tasks-list">
+            <div class="empty-state">
+              <i class="fas fa-inbox"></i>
+              <p>No tasks yet. Add one to get started!</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2026 Task Manager. All Rights Reserved. Built with ❤️</p>
+  </footer>
+
+  <script src="js/todo.js"></script>
+</body>
+</html>
